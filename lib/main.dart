@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: '記帳軟體'),
+      home: const MyHomePage(title: '123'),
     );
   }
 }
@@ -57,11 +57,84 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),// Populate the Drawer in the next step.
+      ),
+      endDrawer: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: const Text('Item 1'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ],
+          ),// Populate the Drawer in the next step.
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment1',
+        tooltip: 'floatingActionButtonLocation',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+
+
+    ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+    bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
+          shape: const CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
+          child: Row(
+            children: [
+              IconButton(icon: const Icon(Icons.home), onPressed: () {  },),
+              const SizedBox(), //中间位置空出
+              IconButton(icon: const Icon(Icons.business), onPressed: () {  },),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
+          ),
+        )
     );
   }
 }
