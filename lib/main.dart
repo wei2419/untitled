@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
+import './page/page2.dart';
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,11 +28,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const BPage()),
+      );
     });
   }
 
@@ -54,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            build22(),
           ],
         ),
       ),
@@ -71,8 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Item 1'),
               onTap: () {
-                // Update the state of the app.
-                // ...
               },
             ),
             ListTile(
@@ -84,34 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),// Populate the Drawer in the next step.
-      ),
-      endDrawer: Drawer(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),// Populate the Drawer in the next step.
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -137,4 +110,11 @@ class _MyHomePageState extends State<MyHomePage> {
         )
     );
   }
+}
+Widget build22() {
+  return const Center(
+    child: Text('text',
+      style: TextStyle(color: Colors.red,fontSize: 30),
+    ),
+  );
 }
